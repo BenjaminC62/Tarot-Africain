@@ -1,0 +1,58 @@
+@startuml
+
+'pour cacher les attributs dans les diff class'
+hide empty members
+
+abstract class Joueur {
+
+}
+
+class Carte {
+
+}
+
+class Jeu {
+
+}
+
+class PLI {
+
+}
+
+class Tas {
+
+}
+
+class Tour {
+
+}
+
+enum Atout {
+1, 21
+}
+
+class JHumain {
+
+}
+
+class JIA {
+
+}
+
+class excuse {
+
+}
+
+
+PLI "1" *.. "0..4" Carte
+Tas "1" *.. "0..22" Carte
+
+Joueur <|-- JHumain
+Joueur <|-- JIA
+
+Tour o-- "0..5" PLI
+Jeu o-- "4" Joueur
+Jeu o-- Tour
+
+
+@enduml
