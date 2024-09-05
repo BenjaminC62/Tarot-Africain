@@ -4,7 +4,10 @@
 hide empty members
 
 abstract class Joueur {
-
+    -nbVie : int
+    -nom : String
+    paris(paris : int)
+    Joueur(Nom : String)
 }
 
 class Carte {
@@ -12,9 +15,18 @@ class Carte {
 }
 
 class Jeu {
+    -joueur : IJoueur[4]
+    -joueurCourant : IJoueur
+    --
     Jeu() : void
-    nouvellePartie () : void
-    
+    nouvelleTour () : void
+    joueur () : void
+    partieTerminer () : void
+}
+
+interface IJoueur {
+    +jouer: void
+    +choisirCarte : Carte
 }
 
 class PLI {
@@ -26,7 +38,8 @@ class Tas {
 }
 
 class Tour {
-
+    -NumeroTour : int
+    +distribueCarte() : void
 }
 
 enum Atout {
@@ -42,15 +55,14 @@ class JIA {
 }
 
 class Excuse {
-    valMax : boolean
-    compareTo(atout Atout): int
-    compareTo(excuse Excuse): int
+    -valMax : boolean
+    +compareTo(atout Atout): int
+    +compareTo(excuse Excuse): int
 }
 
 interface ICarte {
-
-    compareTo(atout Atout): int
-    compareTo(excuse Excuse): int
+    +compareTo(atout Atout): int
+    +compareTo(excuse Excuse): int
 
 }
 
@@ -62,12 +74,13 @@ Joueur <|-- JHumain
 Joueur <|-- JIA
 
 Tour o-- "0..5" PLI
-Jeu o-- "4" Joueur
 Jeu o-- Tour
 
-Atout ..> ICarte
-Excuse ..> ICarte
-Carte o.. ICarte
+Atout ..|> ICarte
+Excuse ..|> ICarte
+Carte -- ICarte
 
+Jeu o-- "2" IJoueur
+IJoueur <|.. Joueur
 
 @enduml
