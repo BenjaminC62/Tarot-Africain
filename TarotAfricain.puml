@@ -12,7 +12,9 @@ class Carte {
 }
 
 class Jeu {
-
+    Jeu() : void
+    nouvellePartie () : void
+    
 }
 
 class PLI {
@@ -28,7 +30,7 @@ class Tour {
 }
 
 enum Atout {
-1, 21
+
 }
 
 class JHumain {
@@ -39,7 +41,16 @@ class JIA {
 
 }
 
-class excuse {
+class Excuse {
+    valMax : boolean
+    compareTo(atout Atout): int
+    compareTo(excuse Excuse): int
+}
+
+interface ICarte {
+
+    compareTo(atout Atout): int
+    compareTo(excuse Excuse): int
 
 }
 
@@ -53,6 +64,10 @@ Joueur <|-- JIA
 Tour o-- "0..5" PLI
 Jeu o-- "4" Joueur
 Jeu o-- Tour
+
+Atout ..> ICarte
+Excuse ..> ICarte
+Carte o.. ICarte
 
 
 @enduml
