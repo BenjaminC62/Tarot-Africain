@@ -61,11 +61,13 @@ class Tour {
     -paris int[]
     -numeroTour : int
     -score int[]
+    -plis: PLI[]
     --
     #Tour(Jeu jeu) : void
     +distribuerCartes() : void
-    +jouerPlis() : void
+    +jouerTour() : void
     +paris(): void
+    +jouerPlis() : void
 }
 
 enum Atout {
