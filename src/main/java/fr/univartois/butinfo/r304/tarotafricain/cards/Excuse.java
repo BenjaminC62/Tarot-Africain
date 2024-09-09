@@ -22,12 +22,15 @@ public class Excuse implements ITrump{
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(highValue);
+        return Objects.hash(highValue);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Excuse excuse = (Excuse) o;
+        return Objects.equals(highValue, excuse.highValue);
     }
 
     @Override
@@ -44,7 +47,7 @@ public class Excuse implements ITrump{
      */
     @Override
     public int compareTo(ITrump trump) {
-        return 0;
+        return -trump.compareTo(this);
     }
 
     /**
@@ -54,7 +57,10 @@ public class Excuse implements ITrump{
      */
     @Override
     public int compareTo(NumberedTrump trump) {
-        return 0;
+        if(highValue){
+            return 1;
+        }
+        return -1;
     }
 
     /**
@@ -64,6 +70,12 @@ public class Excuse implements ITrump{
      */
     @Override
     public int compareTo(Excuse excuse) {
+        if(isHighValue() && !excuse.isHighValue()){
+            return 1;
+        }
+        if(!isHighValue() && excuse.isHighValue()){
+            return -1;
+        }
         return 0;
     }
 }

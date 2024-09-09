@@ -7,11 +7,14 @@ public enum NumberedTrump implements ITrump {
 
     @Override
     public int compareTo(ITrump trump) {
-        return 0;
+        return -trump.compareTo(this);
     }
 
     @Override
     public int compareTo(Excuse excuse) {
-        return 0;
+        if(excuse.isHighValue()){
+            return -1;
+        }
+        return 1;
     }
 }
