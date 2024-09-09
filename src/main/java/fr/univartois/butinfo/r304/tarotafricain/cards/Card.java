@@ -33,6 +33,13 @@ public class Card implements Comparable<Card>{
 
     @Override
     public int compareTo(Card card) {
-        return 0;
+        return trump.compareTo(card.getTrump());
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "trump=" + trump +
+                '}';
     }
 }
