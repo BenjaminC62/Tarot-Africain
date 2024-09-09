@@ -5,6 +5,7 @@ import fr.univartois.butinfo.r304.tarotafricain.Round;
 import fr.univartois.butinfo.r304.tarotafricain.Trick;
 import fr.univartois.butinfo.r304.tarotafricain.cards.Card;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class HumanPlayer extends AbstractPlayer{
@@ -31,6 +32,13 @@ public class HumanPlayer extends AbstractPlayer{
 
     @Override
     public Card play(Trick trick) {
-        
+        List<Card> playabledCards = computedAllowedCards(trick);
+        System.out.println("Voici les cartes que vous pouvez jouer");
+        System.out.println(playabledCards);
+        System.out.println("Enter the index of the card you want to play");
+        int index = scanner.nextInt();
+        Card card = playabledCards.get(index);
+
+        return card;
     }
 }
