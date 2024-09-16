@@ -45,16 +45,15 @@ public class Round {
             Trick trick = new Trick();
             playTrick(trick);
             scores[trick.getWinner()]++;
-
+            currrentPlayer = trick.getWinner();
         }
     }
 
     public void askBids(){
         for(int i = 0; i < Game.NB_PLAYERS; i++){
-            if(totalsBids != numbersOfCards){
-                int bid = players.get(currrentPlayer).makeBid(this);
-                bids[currrentPlayer] = bid;
-            }
+            bids[currrentPlayer] = players.get(currrentPlayer).makeBid(this);
+            totalsBids += bids[currrentPlayer];
+            currrentPlayer = (currrentPlayer + 1) % Game.NB_PLAYERS;
         }
     }
 

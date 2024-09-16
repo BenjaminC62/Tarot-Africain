@@ -20,6 +20,8 @@ public abstract class AbstractPlayer implements IPlayer{
         this.hand = new ArrayList<>();
     }
 
+    public abstract int makeBid(Round round);
+
 
     @Override
     public String getName() {
