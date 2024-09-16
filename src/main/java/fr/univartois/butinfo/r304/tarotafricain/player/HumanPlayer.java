@@ -38,7 +38,7 @@ public class HumanPlayer extends AbstractPlayer{
         System.out.println("Enter the index of the card you want to play");
         int index = scanner.nextInt();
         Card card = playabledCards.get(index);
-
+        getHand().remove(card);
         return card;
     }
 }

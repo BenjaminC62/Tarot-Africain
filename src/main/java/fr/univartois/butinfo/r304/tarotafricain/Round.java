@@ -15,6 +15,11 @@ public class Round {
     private int numbersOfBids;
     private DeckOfCards deck;
 
+    public Round(List<IPlayer> players, int currrent) {
+        this.players = players;
+
+    }
+
     public int getNumberOfCards(){
         return 0;
     }
