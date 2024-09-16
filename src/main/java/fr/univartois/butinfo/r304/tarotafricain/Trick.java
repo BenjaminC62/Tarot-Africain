@@ -11,12 +11,15 @@ public class Trick {
     }
 
     public Card getBestCard(){
-        Card card = new Card();
-        return card;
+
     }
 
     public int getWinner(){
-        return 0;
+
+    }
+
+    public void play(int playerIndex, Card card){
+
     }
 
 }

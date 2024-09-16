@@ -58,7 +58,10 @@ public class Round {
     }
 
     public void playTrick(Trick trick){
-
+        for(int i = 0; i < Game.NB_PLAYERS; i++){
+            trick.play(players.get(currrentPlayer).play(trick));
+            currrentPlayer = (currrentPlayer + 1) % Game.NB_PLAYERS;
+        }
     }
 
     public int getPenality(int playerIndex){

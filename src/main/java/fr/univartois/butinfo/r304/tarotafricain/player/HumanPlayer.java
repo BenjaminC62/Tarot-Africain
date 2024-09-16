@@ -36,7 +36,7 @@ public class HumanPlayer extends AbstractPlayer{
                     continue;
                 }
             }catch (Exception e){
-                System.out.println("Error, enter a bid between 0 and 4");
+                System.out.println("The sum of the bids need to be different of the numbers of the cards");
                 bid = -1;
                 continue;
             }
@@ -55,8 +55,15 @@ public class HumanPlayer extends AbstractPlayer{
         List<Card> playabledCards = computedAllowedCards(trick);
         System.out.println("Voici les cartes que vous pouvez jouer");
         System.out.println(playabledCards);
-        System.out.println("Enter the index of the card you want to play");
-        int index = scanner.nextInt();
+        int index;
+        do{
+            try {
+                index = scanner.nextInt();
+            }catch (NumberFormatException e){
+                System.out.println("Error, enter a number");
+                index = -1;
+            }
+        }while(index < 0 || index >= playabledCards.size());
         Card card = playabledCards.get(index);
         getHand().remove(card);
         return card;
