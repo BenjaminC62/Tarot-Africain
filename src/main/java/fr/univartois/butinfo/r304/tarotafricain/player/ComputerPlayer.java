@@ -22,7 +22,7 @@ public class ComputerPlayer extends AbstractPlayer{
         int bid = RANDOM.nextInt(round.getNumberOfCards());
         if(round.getNumberOfBids() == (Game.NB_PLAYERS - 1)){
             if((round.getTotalOfBids() + bid)  == round.getNumberOfCards()){
-                bid = ((bid-1) < round.getNumberOfCards()) ? bid + 1 : bid - 1;
+                bid = ((bid+1) <= round.getNumberOfCards()) ? bid + 1 : bid - 1;
             }
         }
         return bid;

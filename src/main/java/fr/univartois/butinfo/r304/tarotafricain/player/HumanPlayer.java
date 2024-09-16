@@ -19,14 +19,34 @@ public class HumanPlayer extends AbstractPlayer{
     @Override
     public int makeBid(Round round) {
         System.out.println("Voici votre main ");
+        System.out.println(this);
         System.out.println("Enter your bid : ");
-        int bid = scanner.nextInt();
-        if(round.getNumberOfBids() == (Game.NB_PLAYERS - 1)){
-            while((round.getTotalOfBids() + bid) == round.getNumberOfCards()){
-                System.out.println("Erreur, enter new bid");
+        return readBid(round);
+    }
+
+    private int readBid(Round round){
+        System.out.println("Enter your bid :");
+        int bid;
+        do{
+            try {
                 bid = scanner.nextInt();
+                if(bid < 0 || bid > round.getNumberOfCards()){
+                    System.out.println("Error, enter a bid between 0 and 4");
+                    bid = -1;
+                    continue;
+                }
+            }catch (Exception e){
+                System.out.println("Error, enter a bid between 0 and 4");
+                bid = -1;
+                continue;
             }
-        }
+            if(round.getNumberOfBids() == (Game.NB_PLAYERS - 1)){
+                if((round.getTotalOfBids() + bid) == round.getNumberOfCards()){
+                    System.out.println("Le total des enchères doit être diff du ");
+                    bid = -1;
+                }
+            }
+        }while(bid < 0 || bid > round.getNumberOfCards());
         return bid;
     }
 

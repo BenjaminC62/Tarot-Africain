@@ -21,6 +21,7 @@ public abstract class AbstractPlayer implements IPlayer{
     }
 
     public abstract int makeBid(Round round);
+    public abstract Card play(Trick trick);
 
 
     @Override
