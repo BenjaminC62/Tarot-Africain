@@ -27,7 +27,7 @@ public class Trick {
     }
 
     public int getWinner(){
-        return 0;
+        return bestPlayerIndex;
     }
 
     public void play(int playerIndex, Card card){
