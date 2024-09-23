@@ -17,7 +17,37 @@ public class Game {
     public Game(){
         players = new ArrayList<>();
         currentPlayer = 0;
-        numberOfCards = 0;
+        numberOfCards = MAX_CARDS;
+    }
+
+    public void init(){
+
+    }
+
+    public void start(){
+
+    }
+
+    private boolean allPlayersHavePlayed(){
+        for(IPlayer player : players){
+            if(player.getLife() <= 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void playRound(){
+        Round round = new Round(players, currentPlayer, numberOfCards);
+        round.play();
+    }
+
+    private void nextRound(){
+
+    }
+
+    private void displayLife(){
+        
     }
 
 }
