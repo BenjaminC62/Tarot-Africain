@@ -12,8 +12,12 @@ public class Game {
     public static final int LIFE = 10;
 
     private List<IPlayer> players;
+    private int currentPlayer;
+    private int numberOfCards;
     public Game(){
         players = new ArrayList<>();
+        currentPlayer = 0;
+        numberOfCards = 0;
     }
 
 }
